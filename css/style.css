@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+a {
+	font-size: 24px;
+	font-weight: 400;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+ul {
+	padding: 0 10%;
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+}
+.content {
+	padding: 0 10%;
+}

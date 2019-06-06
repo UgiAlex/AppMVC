@@ -9,9 +9,9 @@ class Controller_Post extends Controller
 		$this->view = new View();
 	}
 	
-	function action_index()
-	{
-		$data = $this->model->slim();		
-		$this->view->generate('post_view.php', 'template_view.php', $data);
-	}
+// 	function action_index()
+// 	{
+// 		$data = $this->model->slim();		
+// 		$this->view->generate('post_view.php', 'template_view.php', $data);
+// 	}
 }

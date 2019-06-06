@@ -1,6 +1,7 @@
 {
     "require": {
         "j4mie/idiorm": "^1.5",
-        "olamedia/nokogiri": "^1.0"
+        "olamedia/nokogiri": "^1.0",
+        "slim/slim": "2.*"
     }
 }

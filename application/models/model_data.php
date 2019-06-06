@@ -7,4 +7,8 @@ class Model_Data extends Model
 		return $data;
 	}
 
+	public function GetPost($index) {
+		$data = $this->db = ORM::forTable('News')->where('id', $index)->findOne();
+		return $data;
+	}
 }

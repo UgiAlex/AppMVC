@@ -11,7 +11,7 @@ class Controller_Post extends Controller
 	
 // 	function action_index()
 // 	{
-// 		$data = $this->model->slim();		
+// 		$data = $this->model->GetPost();		
 // 		$this->view->generate('post_view.php', 'template_view.php', $data);
 // 	}
 }

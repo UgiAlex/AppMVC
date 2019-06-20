@@ -11,6 +11,4 @@ class Model
 		$this->db = ORM::get_db()->exec("CREATE TABLE IF NOT EXISTS News (id INTEGER PRIMARY KEY, Title TEXT, TimePublic TEXT, Comments TEXT);");
 	}
 
-	public function SelectAll()
-	{	}
 }

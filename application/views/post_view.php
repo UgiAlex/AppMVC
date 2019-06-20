@@ -1,6 +1,10 @@
-<a href="/data">Назад</a>
-<h3>Новость номер: <?= $data['id'] ?></h3>
+<h2>Данные в базе</h2>
 
-<h3><?= $data['Title'] ?></h3>
-<p>Дата публикации: <?= $data['TimePublic'] ?></p>
-<p>Комментариев: <?= $data['Comments'] ?></p>
+<?php foreach ($data as $row):	?>
+
+	<h3><?= $row['Title'] ?></h3>
+	<p><?= $row['TimePublic'] ?></p>
+	<p>Комментариев: <?= $row['Comments'] ?></p>
+	<a href="/post/news/<?= $row['id'] ?>">Читать</a>	<hr>
+
+<?php endforeach; ?>

@@ -6,9 +6,7 @@ class Route
 	static function start()
 	{
 		// по умолчанию
-		$controller_name = 'Main';
-		$action_name = 'index';
-		$post_index = '';
+		$controller_name = 'Main';	$action_name = 'index';	$post_index = '';
 		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 		
@@ -30,12 +28,12 @@ class Route
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
-		// echo $model_name.'<br>';
-		// echo $controller_name.'<br>';
-		// echo $action_name.'<br>';
-		// echo $post_index;
+		echo $model_name.'<br>';
+		echo $controller_name.'<br>';
+		echo $action_name.'<br>';
+		echo $post_index.'<br>';
 
-		// подцепляем файл с классом модели (файла модели может и не быть)
+		// подцепляем файл с классом модели (если существует)
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "application/models/".$model_file;
 		if(file_exists($model_path))	{

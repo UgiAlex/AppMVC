@@ -9,8 +9,7 @@
 	<header>
 		<ul>
 			<li><a href="/">Главная</a></li>
-			<li><a href="/post/parse">Получить новые данные</a></li>
-			<li><a href="/post">Данные в базе</a></li>
+			<li><a href="/parse">Получить новые данные</a></li>
 		</ul>		
 	</header>
 

@@ -1,10 +1,9 @@
 <?php
 
-// подключаем файлы ядра
-require_once 'core/model.php';
-require_once 'core/view.php';
-require_once 'core/controller.php';
-require_once 'core/route.php';
+$app = new \Slim\Slim();
 
-// запускаем маршрутизатор
-Route::start(); 
+	$app->get('/',          'controller_post:action_index');
+	$app->get('/parse',     'controller_post:action_parse');
+	$app->get('/post/:id',  'controller_post:action_post');
+
+$app->run();

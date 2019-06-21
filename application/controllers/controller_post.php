@@ -14,13 +14,12 @@ class Controller_Post extends Controller
 	}	
 	
 	function action_parse()	{
-		$data = $this->model->ParsePage();	
+		$data = $this->model->ParsePost();	
 		$this->view->generate('parse_view.php', $data);
 	}
 
-	function action_news()	{
-		$data = $this->model->SelectOne();
-		var_dump($data);
+	function action_post($id)	{
+		$data = $this->model->SelectOne($id);
 		$this->view->generate('news_view.php', $data);
 	}
 

@@ -1,21 +1,20 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php";
-
 class Model_Post extends Model
 {
 
-	public function ParsePage() {
+	public function ParsePost() {
 
-		$page = file_get_contents('https://habr.com/ru/');
-		$saw = new nokogiri($page);
+		$pageUser = file_get_contents('https://habr.com/ru/');
+		$saw = new nokogiri($pageUser);
 
 		// Получаем значения с элементов страницы
+
 		$title = $saw->get('.post__title_link')->toArray();
 		$time = $saw->get('.post__time')->toArray();
 		$comments = $saw->get('.post-stats__comments-count')->toArray();
 
-		for ($i=0; $i < 5; $i++) { 
+		for ($i=0; $i < 10; $i++) { 
 			// Далее чтобы не засорять таблицу идентичными записями проверяем есть ли новость с подобным заголовком
 			$Check = ORM::forTable('News')->where('Title', $title[$i]['#text'][0])->findOne();
 			// Если запись есть обновим содержимое столбца "Комментарии"
@@ -48,19 +47,12 @@ class Model_Post extends Model
 		return $data;
 
 	}
+	
+	public function SelectOne($id) {
 
-	public function SelectOne() {
-		
-		$app = new \Slim\Slim();
+		$data = $this->db = ORM::forTable('News')->findOne($id);
+		return $data;
 
-		$app->get('/post/news/:index', function($index) {
-			
-		});
-
-		$app->run();
-			
-			$data = $_SERVER['REQUEST_URI'];
-			return $data;
 	}
 
 	public function GetDateTime($string) {

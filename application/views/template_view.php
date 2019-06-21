@@ -10,6 +10,7 @@
 		<ul>
 			<li><a href="/">Главная</a></li>
 			<li><a href="/parse">Получить новые данные</a></li>
+			<li><a href="/users">Пользователи</a></li>
 		</ul>		
 	</header>
 

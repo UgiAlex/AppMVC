@@ -1,26 +1,39 @@
-<?php
-
-class Controller_Post extends Controller
+﻿<?php
+class ControllerNews extends Controller
 {
+    public function __construct()
+    {
+        $this->model = new ModelNews();
+        $this->view = new View();
+    }
 
-	function __construct()	{
-		$this->model = new Model_Post();
-		$this->view = new View();
-	}
+    public function ActionIndex()
+    {
+        $data = $this->model->SelectAllNews();
+        $this->view->generate('post_view.php', $data);
+    }    
+    
+    public function ActionParse()
+    {
+        $data = $this->model->Parse();
+        $this->view->generate('parse_view.php');
+    }
 
-	function action_index()	{
-		$data = $this->model->SelectAll();		
-		$this->view->generate('post_view.php', $data);
-	}	
-	
-	function action_parse()	{
-		$data = $this->model->ParsePost();	
-		$this->view->generate('parse_view.php', $data);
-	}
+    public function ActionPost($id)
+    {
+        $data = $this->model->SelectOneNews($id);
+        $this->view->generate('news_view.php', $data);
+    }
+    
+    public function ActionUserPost($nickname)
+    {
+        $data = $this->model->SelectAuthorNews($nickname);
+        $this->view->generate('UserPost_view.php', $data);
+    }
 
-	function action_post($id)	{
-		$data = $this->model->SelectOne($id);
-		$this->view->generate('news_view.php', $data);
-	}
-
+    public function ActionUser()
+    {
+        $data = $this->model->SelectAuthors();
+        $this->view->generate('Users_view.php', $data);
+    }
 }

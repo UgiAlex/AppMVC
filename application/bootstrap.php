@@ -1,10 +1,10 @@
 ﻿<?php
 $app = new \Slim\Slim();
 
-    $app->get('/', 'ControllerNews:ActionIndex');
-    $app->get('/parse', 'ControllerNews:ActionParse');
-    $app->get('/post/:id', 'ControllerNews:ActionPost');
-    $app->get('/users', 'ControllerNews:ActionUser');
-    $app->get('/:nickName/post', 'ControllerNews:ActionUserPost');
+    $app->get('/', 'ControllerNews:mainPage');
+    $app->get('/parse', 'ControllerNews:parsePages');
+    $app->get('/post/:id', 'ControllerNews:readPost');
+    $app->get('/users', 'ControllerNews:authors');
+    $app->get('/:nickName/post', 'ControllerNews:authorNews');
 
 $app->run();

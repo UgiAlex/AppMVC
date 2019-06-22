@@ -1,7 +1,7 @@
 ﻿<?php
 class ModelNews extends Model
 {
-    public function Parse()
+    public function parse()
     {
         $pageUser = file_get_contents('https://habr.com/ru/users/');
         $parseUser = new nokogiri($pageUser);
@@ -37,25 +37,25 @@ class ModelNews extends Model
         }
     }
 
-    public function SelectAllNews()
+    public function selectAllNews()
     {
         $data = $this->db = ORM::forTable('News')->orderByDesc('TimePublic')->findMany();
         return $data;
     }
         
-    public function SelectOneNews($id)
+    public function selectOneNews($id)
     {
         $data = $this->db = ORM::forTable('News')->findOne($id);
         return $data;
     }
 
-    public function SelectAuthors() 
+    public function selectAuthors() 
     {
         $data = $this->db = ORM::forTable('Authors')->distinct()->selectMany('Name', 'Nickname')->findMany();
         return $data;
     }
     
-    public function SelectAuthorNews($nickname)
+    public function selectAuthorNews($nickname)
     {
         $id_Author = $this->db = ORM::forTable('Authors')->where('Nickname', $nickname)->select('id')->findOne();
         $data = $this->db = ORM::forTable('News')->where('id_Author', $id_Author['id']-1)->findMany();

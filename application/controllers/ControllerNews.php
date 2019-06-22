@@ -1,5 +1,5 @@
 ﻿<?php
-class ControllerNews extends Controller
+class ControllerNews
 {
     public function __construct()
     {
@@ -7,33 +7,33 @@ class ControllerNews extends Controller
         $this->view = new View();
     }
 
-    public function ActionIndex()
+    public function mainPage()
     {
-        $data = $this->model->SelectAllNews();
-        $this->view->generate('post_view.php', $data);
+        $data = $this->model->selectAllNews();
+        $this->view->generate('News.php', $data);
     }    
     
-    public function ActionParse()
+    public function parsePages()
     {
-        $data = $this->model->Parse();
-        $this->view->generate('parse_view.php');
+        $data = $this->model->parse();
+        $this->view->generate('Parse.php');
     }
 
-    public function ActionPost($id)
+    public function readPost($id)
     {
-        $data = $this->model->SelectOneNews($id);
-        $this->view->generate('news_view.php', $data);
+        $data = $this->model->selectOneNews($id);
+        $this->view->generate('Post.php', $data);
     }
+
+    public function authors()
+    {
+        $data = $this->model->selectAuthors();
+        $this->view->generate('Authors.php', $data);
+    }    
     
-    public function ActionUserPost($nickname)
+    public function authorNews($nickname)
     {
-        $data = $this->model->SelectAuthorNews($nickname);
-        $this->view->generate('UserPost_view.php', $data);
-    }
-
-    public function ActionUser()
-    {
-        $data = $this->model->SelectAuthors();
-        $this->view->generate('Users_view.php', $data);
+        $data = $this->model->selectAuthorNews($nickname);
+        $this->view->generate('AuthorNews.php', $data);
     }
 }

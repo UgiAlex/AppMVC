@@ -1,4 +1,4 @@
-﻿<?php foreach ($data as $row):	?>
+<?php foreach ($data as $row):	?>
 
 <h3><?= $row['Title'] ?></h3>
 <p><?= $row['TimePublic'] ?></p>

@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 $app = new \Slim\Slim();
 
     $app->get('/', 'ControllerNews:mainPage');

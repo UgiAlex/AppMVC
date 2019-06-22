@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 class ControllerNews
 {
     public function __construct()
@@ -11,8 +12,8 @@ class ControllerNews
     {
         $data = $this->model->selectAllNews();
         $this->view->generate('News.php', $data);
-    }    
-    
+    }
+
     public function parsePages()
     {
         $data = $this->model->parse();
@@ -29,8 +30,8 @@ class ControllerNews
     {
         $data = $this->model->selectAuthors();
         $this->view->generate('Authors.php', $data);
-    }    
-    
+    }
+
     public function authorNews($nickname)
     {
         $data = $this->model->selectAuthorNews($nickname);

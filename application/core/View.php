@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 class View
 {
     public function generate($content_view, $data = null)

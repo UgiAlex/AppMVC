@@ -9,7 +9,8 @@
         <header>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="/parse">Получить новые данные</a></li>
+                <li><a href="/parseuser">Спарсить авторов</a></li>
+                <li><a href="/parsenews">Спарсить новости</a></li>
                 <li><a href="/users">Авторы</a></li>
             </ul>
         </header>

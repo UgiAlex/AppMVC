@@ -12,19 +12,14 @@ class ControllerNews {
         $this->view->generate('News.php', $data);
     }
 
-    public function parsePages() {
-        $data = $this->model->parse();
+    public function parseNews() {
+        $data = $this->model->parseNews();
         $this->view->generate('Parse.php');
     }
 
     public function readPost($id) {
         $data = $this->model->selectOneNews($id);
         $this->view->generate('Post.php', $data);
-    }
-
-    public function authors() {
-        $data = $this->model->selectAuthors();
-        $this->view->generate('Authors.php', $data);
     }
 
     public function authorNews($nickname) {
